@@ -1,0 +1,19 @@
+#!/bin/bash
+
+while true;do
+echo "------------------------------------------"
+echo "-----------------MENU---------------------"
+echo "------------------------------------------"
+echo "1.Gestionar usuario"
+echo "2.Gestionar grupo"
+echo "3.Gestionar asignacion de usuario a grupos"
+echo "4.Salir"
+echo "------------------------------------------"
+read -p "Elige una opcion: " op
+case $op in
+1)sh 02GestionarUsuario;;
+2)sh 03GestionarGrupo;;
+3)sh 04GestionarGrupoUsuario;;
+4)exit;;
+esac
+done

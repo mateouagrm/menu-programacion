@@ -1,0 +1,25 @@
+#!/bin/bash
+#gestionar grupo
+
+while true
+do
+echo "----------------------------"
+echo "---------gestionar grupo----------"
+echo "---------------------------------"
+echo "1. crear grupo con numero de identificador"
+echo "2. modificar nombre del grupo"
+echo "3. Eliminar grupo"
+echo "4. atras"
+read -p "digite una opcion " op
+case $op in
+1)read -p "nombre del grupo " grupo
+read -p "id del grupo " id
+groupadd -g $id $grupo;;
+2)read -p "nombre del grupo " grupo
+read -p "nuevo nombre " nuevo
+groupmod -n $nuevo $grupo;;
+3)read -p "nombre del grupo " grupo
+groupdel $grupo;;
+4)exit;;
+esac
+done

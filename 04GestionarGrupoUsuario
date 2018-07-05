@@ -1,0 +1,28 @@
+#!/bin/bash
+#Gestionar Grupo usuario
+
+while true
+do
+echo "-----------------------------"
+echo "---Gestionar grupo Usuario----"
+echo "------------------------------"
+echo "1. crear usuario asignando a un grupo"
+echo "2. modificar usuario asignando a un grupo"
+echo "3. modificar el usuario para que pertenezca a 2 grupos"
+echo "4. atras"
+echo "----------------------------"
+read -p "elige una opcion " op
+case $op in
+1)read -p "nombre del usuario " user
+read -p "nombre del grupo" grupo
+useradd -g $grupo $user;;
+2)read -p "nombre del usuario " user
+read -p "nombre del nuevo grupo " grupo
+usermod -g $grupo $user;;
+3)read -p "nombre del usuario " user
+read -p "nombre grupo1 " grupo1
+read -p "nombre grupo2 " grupo2
+usermod -G $grupo1, $grupo2 $user;;
+4)exit;;
+esac
+done

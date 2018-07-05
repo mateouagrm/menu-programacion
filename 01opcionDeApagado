@@ -1,0 +1,21 @@
+#!/bin/bash
+#menu opciones de apagado
+
+echo "-------------------------------"
+echo "------------MENU---------------"
+echo "-------------------------------"
+
+while true
+do
+echo "1. apagar"
+echo "2. reinicar"
+echo "3. salir"
+echo "----------------------------"
+echo "elija una opcion: "
+read op
+case $op in
+1) shutdown -h now;;
+2) shutdown -r now;;
+3) exit;;
+esac
+done

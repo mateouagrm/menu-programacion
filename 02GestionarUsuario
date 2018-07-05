@@ -1,0 +1,35 @@
+#!/bin/bash
+#gestionar usuario
+
+while true
+do
+echo "-------------------------------------"
+echo "--------Gestionar Usuario------------"
+echo "-------------------------------------"
+echo "1. crear usuario con identificador y nombre completo"
+echo "2. modificar identificador del usuario y nombre completo"
+echo "3. crear usuario con fecha de expiracion"
+echo "4. crear superusuario"
+echo "5. eliminar usuario"
+echo "6. atras"
+echo "-------------------------------------"
+read -p "elige una opcion " op
+case $op in
+1)read -p "nombre del usuario: " user
+read -p "nombre completo " nombre
+read -p "identificador " id
+useradd -u $id -c $nombre $user;;
+2)read -p "nombre del usuario " user
+read -p "nombre completo a modificar" nombre
+read -p "id a modificar" id
+usermod -c $nombre -u $id $user;;
+3)read -p "nombre del usuario: " user
+read -p "fecha de expiracion AAAA/MM/DD: " fecha
+useradd -e $fecha  $user;;
+4)read -p "nombre del usuario: " user
+useradd -u 0 -g 0 -o $user;;
+5)read -p "nombre de usuario a eliminar" user
+userdel $user;;
+6)exit;;
+esac
+done
